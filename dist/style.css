@@ -591,10 +591,6 @@ video {
   width: 100%;
 }
 
-.max-w-md {
-  max-width: 28rem;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -623,10 +619,6 @@ video {
 
 .p-0 {
   padding: 0px;
-}
-
-.p-4 {
-  padding: 1rem;
 }
 
 .px-3 {
@@ -754,12 +746,6 @@ video {
 
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
-}
-
-@media (min-width: 640px) {
-  .sm\:w-3\/4 {
-    width: 75%;
-  }
 }
 
 @media (min-width: 768px) {

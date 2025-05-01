@@ -12,7 +12,7 @@
             <h1 class="text-4xl font-semibold text-zinc-600">Login</h1>
         </div>
         <div>
-            <form>
+            <form id="loginForm">
                 <div class="mb-4 flex flex-col">
                     <div class="flex flex-col">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
@@ -32,9 +32,9 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-4">
-                    <input type="submit" class="w-full md:w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    <input type="submit" name="submit" id="reset" class="w-full md:w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                       value="Login" />
-                    <input type="reset" class="w-full md:w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" value="Refresh" />
+                    <input type="reset" name="reset" id="reset" class="w-full md:w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" value="Refresh" />
                     <button class="w-full md:w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="showPass">
                       Show Password
                     </button>
@@ -108,23 +108,12 @@
 
             if (isValid) {
                 document.getElementById('result').innerHTML = `
-                <h2>Submitted details</h2><ul><li>Name: ${fullname}</li><li>Email: ${email}</li><li>Phone: ${phone}</li><li>Date of Birth: ${birthdate}</li><li>Password: ${password}</li></ul>`;
-                
+                <h2>Login successful</h2><ul><li>Email: ${email}</li><li>Password: *********</li></ul>`;
                 document.querySelector('form').reset()
-
             } else {
                 document.getElementById('result').innerHTML = "<span class='text-red-600 text-xl font-semibold'>Please fill all fields</span>"
             }
         })
-        
-        if (isValid) {
-                document.getElementById('result').innerHTML = `<h2>Successful login</h2><ul><li>Email: ${email}</li><li>Password: *******</li></ul>`
-
-                document.querySelector('form').reset()
-
-            } else {
-                document.getElementById('result').innerHTML = "<span class='text-red-600 text-xl font-semibold'>Please fill all fields</span>"
-            }
 
         let showPass = document.querySelector("#showPass")
         showPass.addEventListener('click', (e) => {
@@ -139,48 +128,13 @@
             }
         })
 
-        // let resetAction = document.querySelector("input[type=reset]");
-        // resetAction.addEventListener('click', () => {
-        //     // Optionally reset the form explicitly if needed
-        //     document.querySelector('form').reset();
-        //     // Reload the page
-        //     location.reload();
-        // });
-    
-        
-        document.addEventListener('DOMContentLoaded', () => {
-    // Select the reset button (try multiple selectors for flexibility)
-    const resetAction = document.querySelector("input[type=reset]") || document.querySelector("button[type=reset]");
-    
-    if (!resetAction) {
-        console.error("Reset button not found. Ensure there is an <input type='reset'> or <button type='reset'> in the HTML.");
-        return;
-    }
-
-    console.log("Reset button found:", resetAction);
-
-    // Add event listener for the click event
-    resetAction.addEventListener('click', (e) => {
-        console.log("Reset button clicked");
-        
-        // Optionally reset the form (remove if not needed)
-        const form = resetAction.closest('form');
-        if (form) {
-            form.reset();
-            console.log("Form reset");
-        } else {
-            console.warn("No form found for reset button");
-        }
-
-        // Trigger full page reload
-        try {
-            window.location.reload();
-            console.log("Page reload initiated");
-        } catch (error) {
-            console.error("Failed to reload page:", error);
-        }
-    });
-});
+        let resetAction = document.querySelector("input[type=reset]");
+        resetAction.addEventListener('click', () => {
+            // Optionally reset the form explicitly if needed
+            document.querySelector('form').reset();
+            // Reload the page
+            location.reload();
+        });
     </script>    
 </body>
 </html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-0 m-0 box-border">
+    <div class="w-1/4 mx-auto">
+        <div class="py-5">
+            <h1 class="text-4xl font-semibold text-zinc-600">Login</h1>
+        </div>
+        <div>
+            <form>
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" name="email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="email"></div>
+                </div>
+
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col">
+                        <div class="flex flex-col">
+                            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                            <input type="password" name="password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="password"></div>    
+                    </div>
+                </div>
+
+                <div class="flex justify-left gap-4">
+                    <input type="submit" class="w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" value="Login">
+                    <input type="reset" class="w-1/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" value="Reset">
+                    <button class="w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="showPass" value="Show Password">Show Password</button>
+                </div>    
+            </form>
+        </div>
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-full">
+            Not yet registered? <a href="index.html" class="text-blue-800">Register here</a>
+        </div>
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-full">
+            GitHub Link: <a href="https://github.com/dgplang/javascript-form-validation" target="_blank" class="text-blue-800">Click Here</a>
+        </div>
+    </div>
+    <script>
+        let btnSubmit = document.querySelector('input[type=submit]');
+        btnSubmit.addEventListener('click', (e) => {
+            e.preventDefault()
+            
+            let spans = document.querySelectorAll('span');
+            if(spans.length > 0) {
+                spans.forEach((span) => {
+                    span.remove()
+                });
+            }
+
+            let isValid = true
+            let email = document.querySelector('input[type=email]').value
+            let password = document.querySelector('input[type=password]').value
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                return emailRegex.test(email)
+            }
+
+            if(!email || email == "") {
+                isValid = false;
+                document.getElementById('email').innerText = 'Email cannot be empty'
+            } else if (!isValidEmail(email)) {
+                isValid = false;
+                document.getElementById('email').innerText = 'Email address must be valid'
+            }
+
+            function validatePassword(password) {
+                const lowercaseRegex = /[a-z]/
+                const uppercaseRegex = /[A-Z]/
+                const numberRegex = /[0-9]/
+                const symbolRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/
+
+                const hasLowercase = lowercaseRegex.test(password)
+                const hasUppercase = uppercaseRegex.test(password)
+                const hasNumber = numberRegex.test(password)
+                const hasSymbol = symbolRegex.test(password)
+
+                return hasLowercase && hasUppercase && hasNumber && hasSymbol
+            }
+
+            const isPassValid = validatePassword(password)
+
+            if (!password || password == "") {
+                isValid = false;
+                document.getElementById('password').innerText = 'Password cannot be empty'
+            } else if (!isPassValid) {
+                isValid = false;
+                document.getElementById('password').innerText = 'Password must combine lowercase, uppercase, number and symbol characters'
+            } else if (password.length < 8) {
+                    isValid = false
+                    document.getElementById('password').innerText = 'Password cannot be less than 8'
+                }
+
+            if (isValid) {
+                document.getElementById('result').innerHTML = `
+                <h2>Submitted details</h2><ul><li>Name: ${fullname}</li><li>Email: ${email}</li><li>Phone: ${phone}</li><li>Date of Birth: ${birthdate}</li><li>Password: ${password}</li></ul>`;
+                
+                document.querySelector('form').reset();
+
+            } else {
+                document.getElementById('result').innerHTML = "<span class='text-red-600 text-xl font-semibold'>Please fill all fields</span>"
+            }
+        })
+        
+        let showPass = document.querySelector("#showPass");
+        showPass.addEventListener('click', (e) => {
+            e.preventDefault();
+            let password = document.querySelector('input[name=password]')
+            if(password.type == "password") {
+                showPass.innerText = 'Hide Password'
+                password.type = 'text'
+            }else{
+                showPass.innerText = 'Show Password'
+                password.type = 'password'
+            }
+        });
+    </script>    
+</body>
+</html>

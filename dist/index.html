@@ -7,22 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="p-0 m-0 box-border">
-<!--
-REGISTER:
-=========
-fullname, email, phone, password, date of birth.
-1. Validate all the data.
-2. User must submit a valid email address.
-3. Password must be greater than 7 characters and it should consist of lowercase, uppercase, number, symbol (optional)
-4. For date of birth, the user must be above 18 years.
-5. Show the user information after successful validation    
-LOGIN:
-=======
-Hard-code the email and password.
-1. Validate all data
-2. Check if the credentials are correct
-3. If correct, show the user a successful message.
--->
     <div class="w-3/4 mx-auto">
         <div class="py-5">
             <h1 class="text-4xl font-semibold text-zinc-600">Register</h1>
@@ -32,56 +16,167 @@ Hard-code the email and password.
                 <div class="mb-4 flex items-end">
                     <div class="flex flex-col w-3/4">
                         <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" required
-                               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <input type="text" name="fullname" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0">Error message here</div>
+                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="fullname"></div>
                 </div>
 
                 <div class="mb-4 flex items-end">
                     <div class="flex flex-col w-3/4">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="email" name="email" required
-                               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <input type="email" name="email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0">Error message here</div>
+                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="email"></div>
                 </div>
 
                 <div class="mb-4 flex items-end">
                     <div class="flex flex-col w-3/4">
                         <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                        <input type="tel" id="phone" name="phone" required
-                               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <input type="tel" name="phone" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0">Error message here</div>
-                </div>
-
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <input type="password" id="password" name="password" required
-                               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                    </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0">Error message here</div>
+                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="phone"></div>
                 </div>
 
                 <div class="mb-4 flex items-end">
                     <div class="flex flex-col w-3/4">
                         <label for="birthdate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
-                        <input type="date" id="birthdate" name="birthdate" required
-                               class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <input type="date" name="birthdate" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0">Error message here</div>
+                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="birthdate"></div>
+                </div>
+
+                <div class="mb-4 flex items-end">
+                    <div class="flex flex-col w-3/4">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" name="password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="password"></div>
                 </div>
     
-                <button type="submit"
-                        class="w-3/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    Register
-                </button>
+                <input type="submit" class="w-3/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="submitBtn" value="Register">
+
+                <div class="pt-4 text-center text-xl font-medium text-gray-700 w-3/4" id="result">
+                </div>
             </form>
         </div>
-
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-3/4">
+            Already registered? <a href="login.html" class="text-blue-800">Login here</a>
+        </div>
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-3/4">
+            GitHub Link: <a href="https://github.com/dgplang/javascript-form-validation" target="_blank" class="text-blue-800">Click Here</a>
+        </div>
     </div>
-    
+    <script>
+        let btnSubmit = document.querySelector('input[type=submit]');
+        btnSubmit.addEventListener('click', (e) => {
+            e.preventDefault()
+            
+            let spans = document.querySelectorAll('span');
+            if(spans.length > 0) {
+                spans.forEach((span) => {
+                    span.remove()
+                });
+            }
+
+            let isValid = true
+            let fullname = document.querySelector('input[type=text]').value
+            let email = document.querySelector('input[type=email]').value
+            let phone = document.querySelector('input[type=tel]').value
+            let birthdate = document.querySelector('input[type=date]').value
+            let password = document.querySelector('input[type=password]').value
+
+            if(!fullname || fullname == "") {
+                isValid = false;
+                document.getElementById('fullname').innerText = 'Fullname cannot be empty'
+            }
+
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                return emailRegex.test(email)
+            }
+
+            if(!email || email == "") {
+                isValid = false;
+                document.getElementById('email').innerText = 'Email cannot be empty'
+            } else if (!isValidEmail(email)) {
+                isValid = false;
+                document.getElementById('email').innerText = 'Email address must be valid'
+            }
+
+            function isValidPhoneNumber(phoneNumber) {
+                // Remove any non-digit characters from the phone number
+                const digitsOnly = phoneNumber.replace(/\D/g, '')
+
+                // Check if the cleaned phone number has exactly 11 digits
+                return /^\d{11}$/.test(digitsOnly)
+            }
+
+            if(!phone || phone == "") {
+                isValid = false
+                document.getElementById('phone').innerText = 'Phone number cannot be empty'
+            } else if (!isValidPhoneNumber(phone)) {
+                isValid = false
+                document.getElementById('phone').innerText = 'Phone number must be 11 digits'
+            }
+
+            function isAdult(birthDateString) {
+                const birthDate = new Date(birthDateString);
+                const today = new Date();
+                const age = today.getFullYear() - birthDate.getFullYear();
+
+                const m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                    return age - 1 >= 18;
+                }
+
+                return age >= 18;
+            }
+
+            if(!birthdate || birthdate == "") {
+                isValid = false
+                document.getElementById('birthdate').innerText = 'Birth Date cannot be empty'
+            } else if (!isAdult(birthdate)) {
+                isValid = false
+                document.getElementById('birthdate').innerText = 'Age must not be less than 18 years'
+            }
+
+            function validatePassword(password) {
+                const lowercaseRegex = /[a-z]/
+                const uppercaseRegex = /[A-Z]/
+                const numberRegex = /[0-9]/
+                const symbolRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/
+
+                const hasLowercase = lowercaseRegex.test(password)
+                const hasUppercase = uppercaseRegex.test(password)
+                const hasNumber = numberRegex.test(password)
+                const hasSymbol = symbolRegex.test(password)
+
+                return hasLowercase && hasUppercase && hasNumber && hasSymbol
+            }
+
+            const isPassValid = validatePassword(password)
+
+            if (!password || password == "") {
+                isValid = false;
+                document.getElementById('password').innerText = 'Password cannot be empty'
+            } else if (!isPassValid) {
+                isValid = false;
+                document.getElementById('password').innerText = 'Password must contain, lowercase, uppercase, number and symbol characters'
+            } else if (password.length < 8) {
+                    isValid = false
+                    document.getElementById('password').innerText = 'Password cannot be less than 8'
+                }
+
+            if (isValid) {
+                document.getElementById('result').innerHTML = `
+                <h2>Submitted details</h2><ul><li>Name: ${fullname}</li><li>Email: ${email}</li><li>Phone: ${phone}</li><li>Date of Birth: ${birthdate}</li><li>Password: ${password}</li></ul>`;
+                
+                document.querySelector('form').reset();
+
+            } else {
+                document.getElementById('result').innerHTML = "<span class='text-red-600 text-xl font-semibold'>Please fill all fields</span>"
+            }
+        })        
+    </script>
 </body>
 </html>

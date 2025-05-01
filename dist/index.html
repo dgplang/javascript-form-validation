@@ -13,56 +13,56 @@
         </div>
         <div>
             <form>
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col w-full">
                         <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
                         <input type="text" name="fullname" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="fullname"></div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="fullname"></div>
                 </div>
 
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col w-full">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                         <input type="email" name="email" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="email"></div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="email"></div>
                 </div>
 
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col w-full">
                         <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
                         <input type="tel" name="phone" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="phone"></div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="phone"></div>
                 </div>
 
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col w-full">
                         <label for="birthdate" class="block text-sm font-medium text-gray-700">Date of Birth</label>
                         <input type="date" name="birthdate" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="birthdate"></div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="birthdate"></div>
                 </div>
 
-                <div class="mb-4 flex items-end">
-                    <div class="flex flex-col w-3/4">
+                <div class="mb-4 flex flex-col">
+                    <div class="flex flex-col w-full">
                         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                         <input type="password" name="password" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
-                    <div class="flex text-red-600 text-sm font-semibold w-1/4 pl-2 pb-0" id="password"></div>
+                    <div class="flex text-red-600 text-sm font-semibold w-full pl-2 pb-0" id="password"></div>
                 </div>
     
-                <input type="submit" class="w-3/4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="submitBtn" value="Register">
+                <input type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="submitBtn" value="Register">
 
-                <div class="pt-4 text-center text-xl font-medium text-gray-700 w-3/4" id="result">
+                <div class="pt-4 text-center text-xl font-medium text-gray-700 w-full" id="result">
                 </div>
             </form>
         </div>
-        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-3/4">
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-full">
             Already registered? <a href="login.html" class="text-blue-800">Login here</a>
         </div>
-        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-3/4">
+        <div  class="text-center pt-5 text-gray-700 text-sm font-semibold w-full">
             GitHub Link: <a href="https://github.com/dgplang/javascript-form-validation" target="_blank" class="text-blue-800">Click Here</a>
         </div>
     </div>
@@ -120,16 +120,16 @@
             }
 
             function isAdult(birthDateString) {
-                const birthDate = new Date(birthDateString);
+                const birthDate = new Date(birthDateString)
                 const today = new Date();
-                const age = today.getFullYear() - birthDate.getFullYear();
+                const age = today.getFullYear() - birthDate.getFullYear()
 
-                const m = today.getMonth() - birthDate.getMonth();
+                const m = today.getMonth() - birthDate.getMonth()
                 if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                    return age - 1 >= 18;
+                    return age - 1 >= 18
                 }
 
-                return age >= 18;
+                return age >= 18
             }
 
             if(!birthdate || birthdate == "") {
@@ -168,10 +168,9 @@
                 }
 
             if (isValid) {
-                document.getElementById('result').innerHTML = `
-                <h2>Submitted details</h2><ul><li>Name: ${fullname}</li><li>Email: ${email}</li><li>Phone: ${phone}</li><li>Date of Birth: ${birthdate}</li><li>Password: ${password}</li></ul>`;
-                
-                document.querySelector('form').reset();
+                document.getElementById('result').innerHTML = `<h2>Submitted details</h2><ul><li>Name: ${fullname}</li><li>Email: ${email}</li><li>Phone: ${phone}</li><li>Date of Birth: ${birthdate}</li><li>Password: ${password}</li></ul>`
+
+                document.querySelector('form').reset()
 
             } else {
                 document.getElementById('result').innerHTML = "<span class='text-red-600 text-xl font-semibold'>Please fill all fields</span>"
